@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="15 Feb 2021"
+            android:text="15/2/2021"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:textStyle="bold"

@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lazday.todolist.database.TaskModel
-import com.lazday.todolist.databinding.AdapterTaskBinding
+import com.lazday.todolist.databinding.AdapterTaskCompletedBinding
 
-class TaskAdapter(
+class TaskCompletedAdapter(
     var items: ArrayList<TaskModel>,
     var listener: AdapterListener
-): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+): RecyclerView.Adapter<TaskCompletedAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: AdapterTaskBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: AdapterTaskCompletedBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder (
-        AdapterTaskBinding.inflate(
+        AdapterTaskCompletedBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -27,7 +27,7 @@ class TaskAdapter(
         val item = items[position]
         holder.binding.textTask.text = item.task
         holder.binding.imageCheck.setOnClickListener {
-            listener.onCompleted(item)
+            listener.onClick(item)
         }
     }
 
@@ -38,7 +38,6 @@ class TaskAdapter(
     }
 
     interface AdapterListener {
-        fun onCompleted(taskModel: TaskModel)
-        fun onDetail(taskModel: TaskModel)
+        fun onClick(taskModel: TaskModel)
     }
 }
