@@ -10,11 +10,17 @@ interface TaskDao {
     fun taskAll(completed: Boolean): LiveData<List<TaskModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(taskModel: TaskModel)
+    fun insert(taskModel: TaskModel)
 
     @Update
     fun update(taskModel: TaskModel)
 
     @Delete
-    fun remove(taskModel: TaskModel)
+    fun delete(taskModel: TaskModel)
+
+    @Query("DELETE FROM tableTask WHERE completed=1")
+    fun deleteCompleted()
+
+    @Query("DELETE FROM tableTask")
+    fun deleteAll()
 }

@@ -1,10 +1,10 @@
 package com.lazday.todolist.activity
 
 import android.os.Bundle
-import com.lazday.todolist.databinding.ActivityUpdateBinding
+import com.lazday.todolist.databinding.ActivityAllBinding
 
-class UpdateActivity : BaseActivity() {
-    private val binding by lazy { ActivityUpdateBinding.inflate(layoutInflater) }
+class AllActivity : BaseActivity() {
+    private val binding by lazy { ActivityAllBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

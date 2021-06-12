@@ -29,6 +29,9 @@ class TaskAdapter(
         holder.binding.imageCheck.setOnClickListener {
             listener.onCompleted(item)
         }
+        holder.itemView.setOnClickListener {
+            listener.onDetail(item)
+        }
     }
 
     fun addList(list: List<TaskModel>) {

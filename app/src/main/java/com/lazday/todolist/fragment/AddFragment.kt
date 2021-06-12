@@ -41,7 +41,7 @@ class AddFragment : Fragment() {
 
     private fun addTask(taskModel: TaskModel){
         Thread {
-            database.add( taskModel )
+            database.insert( taskModel )
             requireActivity().runOnUiThread {
                 Toast.makeText(
                     requireActivity(),

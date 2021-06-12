@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todolist">
         <activity android:name=".activity.BaseActivity"></activity>
-        <activity android:name=".activity.TaskActivity" />
+        <activity android:name=".activity.AllActivity" />
         <activity android:name=".activity.UpdateActivity" />
         <activity android:name=".activity.HomeActivity">
             <intent-filter>
