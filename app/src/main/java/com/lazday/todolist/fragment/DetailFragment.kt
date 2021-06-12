@@ -29,6 +29,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.e("DetailFragment", task.toString())
         setupListener()
+        binding.textTask.text = task.task
     }
 
     private fun setupListener(){
