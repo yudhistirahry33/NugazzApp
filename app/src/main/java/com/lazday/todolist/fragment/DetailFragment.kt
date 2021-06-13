@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.lazday.todolist.R
 import com.lazday.todolist.database.TaskModel
 import com.lazday.todolist.databinding.FragmentDetailBinding
+import com.lazday.todolist.util.dateToString
 
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
@@ -27,9 +28,8 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("DetailFragment", task.toString())
         setupListener()
-        binding.textTask.text = task.task
+        setupData()
     }
 
     private fun setupListener(){
@@ -37,5 +37,10 @@ class DetailFragment : Fragment() {
             findNavController()
                 .navigate(R.id.action_detailFragment_to_updateFragment, bundleOf("argument_task" to task))
         }
+    }
+
+    private fun setupData(){
+        binding.textTask.text = task.task
+        binding.textDate.text = dateToString( task.date )
     }
 }

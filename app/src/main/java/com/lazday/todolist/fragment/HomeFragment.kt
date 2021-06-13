@@ -16,7 +16,6 @@ import com.lazday.todolist.adapter.TaskCompletedAdapter
 import com.lazday.todolist.database.DatabaseClient
 import com.lazday.todolist.database.TaskDao
 import com.lazday.todolist.database.TaskModel
-import com.lazday.todolist.databinding.CustomHomeBinding
 import com.lazday.todolist.databinding.FragmentHomeBinding
 import com.lazday.todolist.util.dateToLong
 import com.lazday.todolist.util.dateToday
@@ -24,7 +23,6 @@ import com.lazday.todolist.util.dateToday
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var bindingCustom: CustomHomeBinding
     private lateinit var database: TaskDao
     private lateinit var adapterTask: TaskAdapter
     private lateinit var adapterTaskCompleted: TaskCompletedAdapter
@@ -35,7 +33,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        bindingCustom = binding.custom
         database = DatabaseClient.getService(requireActivity()).taskDao()
         return binding.root
     }
@@ -98,21 +95,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupData(){
-        bindingCustom.textToday.text = dateToday()
+        binding.textToday.text = dateToday()
         database.taskAll( false, dateToLong( dateToday()!! )!! ).observe(viewLifecycleOwner, Observer {
             adapterTask.addList( it )
             binding.textAlert.apply {
                 text = "Tidak ada tugas hari ini"
                 visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             }
-            bindingCustom.textTask.text = it.size.toString()
         })
         database.taskAll( true, dateToLong( dateToday()!! )!! ).observe(viewLifecycleOwner, Observer {
             adapterTaskCompleted.addList( it )
             val visibleCompleted = if (it.isEmpty()) View.GONE else View.VISIBLE
             binding.textCompleted.visibility = visibleCompleted
             binding.imageCompleted.visibility = visibleCompleted
-            bindingCustom.textTaskCompleted.text = "/${it.size}"
         })
     }
 }

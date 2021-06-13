@@ -18,19 +18,60 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             >
-            <FrameLayout
-                android:id="@+id/custom_home"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:backgroundTint="@color/blue_500"
+                app:cardElevation="1dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 >
-                <include
-                    android:id="@+id/custom"
-                    layout="@layout/custom_home"
-                    />
-            </FrameLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/ic_home"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/label_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Hari Ini, "
+                        android:textSize="24sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/text_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="15/2/2021"
+                        android:textSize="24sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/label_today"
+                        app:layout_constraintTop_toBottomOf="@+id/image"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/label_task"
                 android:layout_width="wrap_content"
@@ -41,7 +82,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/custom_home"
+                app:layout_constraintTop_toBottomOf="@+id/card_header"
                 tools:ignore="HardcodedText" />
             <TextView
                 android:id="@+id/text_all"
@@ -53,7 +94,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/blue_500"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/custom_home"
+                app:layout_constraintTop_toBottomOf="@+id/card_header"
                 tools:ignore="HardcodedText" />
             <TextView
                 android:visibility="gone"

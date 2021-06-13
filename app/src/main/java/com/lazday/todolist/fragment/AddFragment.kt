@@ -21,7 +21,6 @@ class AddFragment : Fragment() {
 
     private lateinit var binding: FragmentAddBinding
     private lateinit var database: TaskDao
-    private var dateSelected: Long? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +28,6 @@ class AddFragment : Fragment() {
     ): View? {
         binding = FragmentAddBinding.inflate(inflater, container, false)
         database = DatabaseClient.getService(requireActivity()).taskDao()
-        dateSelected = dateToLong( dateToday()!! )
         return binding.root
     }
 
@@ -39,11 +37,11 @@ class AddFragment : Fragment() {
     }
 
     private fun setupListener(){
+
+        binding.textDate.text = dateToday()
         binding.labelDate.setOnClickListener {
             val datePicker = DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
-                val date = dateToString(year, month, day)
-                dateSelected = dateToLong( date!! )
-                binding.textDate.text = date
+                binding.textDate.text = dateToString(year, month, day)
             }
             dateToDialog(
                 requireActivity(),
@@ -56,7 +54,7 @@ class AddFragment : Fragment() {
                 id = 0,
                 task = binding.editTask.text.toString(),
                 completed = false,
-                date = dateSelected!!
+                date = dateToLong( binding.textDate.text.toString() ) !!
             )
             addTask( taskModel )
         }
