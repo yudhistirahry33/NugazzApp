@@ -6,7 +6,6 @@ import android.content.Context
 import java.text.SimpleDateFormat
 import java.util.*
 
-private const val FORMAT_DATE = "dd/MM/yyyy"
 private const val FORMAT_TIME = "dd/MM/yyyy hh:mm:ss"
 
 fun dateToString(date: Long?): String? {
