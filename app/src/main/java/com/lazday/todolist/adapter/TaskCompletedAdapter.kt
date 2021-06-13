@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lazday.todolist.database.TaskModel
 import com.lazday.todolist.databinding.AdapterTaskCompletedBinding
+import com.lazday.todolist.util.dateToString
 
 class TaskCompletedAdapter(
     var items: ArrayList<TaskModel>,
@@ -26,6 +27,7 @@ class TaskCompletedAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.binding.textTask.text = item.task
+        holder.binding.textDate.text = dateToString( item.date )
         holder.binding.imageCheck.setOnClickListener {
             listener.onClick(item)
         }
