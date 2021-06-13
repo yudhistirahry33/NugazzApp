@@ -1,5 +1,6 @@
 package com.lazday.todolist.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,7 @@ class TaskCompletedAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.binding.textTask.text = item.task
+        holder.binding.textTask.paintFlags = holder.binding.textTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         holder.binding.textDate.text = dateToString( item.date )
         holder.binding.imageCheck.setOnClickListener {
             listener.onClick(item)

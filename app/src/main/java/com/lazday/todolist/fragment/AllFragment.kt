@@ -1,5 +1,6 @@
 package com.lazday.todolist.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lazday.todolist.R
+import com.lazday.todolist.activity.UpdateActivity
 import com.lazday.todolist.adapter.TaskAdapter
 import com.lazday.todolist.adapter.TaskCompletedAdapter
 import com.lazday.todolist.database.DatabaseClient
@@ -61,7 +63,10 @@ class AllFragment : Fragment() {
                 }.start()
             }
             override fun onDetail(taskModel: TaskModel) {
-
+                startActivity(
+                    Intent(requireActivity(), UpdateActivity::class.java)
+                        .putExtra("intent_task", taskModel )
+                )
             }
         })
         binding.listTask.adapter = adapterTask
