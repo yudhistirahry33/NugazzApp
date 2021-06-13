@@ -9,6 +9,9 @@ interface TaskDao {
     @Query("SELECT * FROM tableTask WHERE completed=:completed")
     fun taskAll(completed: Boolean): LiveData<List<TaskModel>>
 
+    @Query("SELECT * FROM tableTask WHERE completed=:completed AND date=:date")
+    fun taskAll(completed: Boolean, date: Long): LiveData<List<TaskModel>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(taskModel: TaskModel)
 
