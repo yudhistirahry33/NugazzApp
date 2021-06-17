@@ -41,6 +41,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupList()
         setupListener()
+    }
+
+    override fun onStart() {
+        super.onStart()
         setupData()
     }
 
