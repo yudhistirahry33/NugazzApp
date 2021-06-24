@@ -41,16 +41,11 @@ class AllFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupList()
         setupListener()
-        database.taskAll( false ).observe(viewLifecycleOwner, Observer {
-            adapterTask.addList( it )
-            binding.textAlert.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
-        })
-        database.taskAll( true ).observe(viewLifecycleOwner, Observer {
-            adapterTaskCompleted.addList( it )
-            val visibleCompleted = if (it.isEmpty()) View.GONE else View.VISIBLE
-            binding.textCompleted.visibility = visibleCompleted
-            binding.imageCompleted.visibility = visibleCompleted
-        })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setupData()
     }
 
     private fun setupList() {
@@ -118,5 +113,18 @@ class AllFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setupData(){
+        database.taskAll( false ).observe(viewLifecycleOwner, Observer {
+            adapterTask.addList( it )
+            binding.textAlert.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+        })
+        database.taskAll( true ).observe(viewLifecycleOwner, Observer {
+            adapterTaskCompleted.addList( it )
+            val visibleCompleted = if (it.isEmpty()) View.GONE else View.VISIBLE
+            binding.textCompleted.visibility = visibleCompleted
+            binding.imageCompleted.visibility = visibleCompleted
+        })
     }
 }
