@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lazday.todolist">
+    package="com.kelompok2.nugazz">
 
     <application
         android:allowBackup="true"
@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Todolist">
-        <activity android:name=".activity.BaseActivity"></activity>
-        <activity android:name=".activity.AllActivity" />
-        <activity android:name=".activity.UpdateActivity" />
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name="com.kelompok2.nugazz.activity.BaseActivity" />
+        <activity android:name="com.kelompok2.nugazz.activity.AllActivity" />
+        <activity android:name="com.kelompok2.nugazz.activity.UpdateActivity" />
+        <activity android:name="com.kelompok2.nugazz.activity.HomeActivity"/>
+        <activity android:name="com.kelompok2.nugazz.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

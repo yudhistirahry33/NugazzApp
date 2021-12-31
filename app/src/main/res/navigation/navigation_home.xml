@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.lazday.todolist.fragment.HomeFragment"
+        android:name="com.kelompok2.nugazz.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.lazday.todolist.fragment.AddFragment"
+        android:name="com.kelompok2.nugazz.fragment.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
 </navigation>

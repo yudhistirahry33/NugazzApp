@@ -4,19 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.AddFragment"
+    tools:context="com.kelompok2.nugazz.fragment.AddFragment"
     android:padding="20dp">
 
     <EditText
         android:id="@+id/edit_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tugas"
-        android:drawableStart="@drawable/ic_task"
+        android:hint="Masukkan Tugas"
         android:drawablePadding="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        />
     <TextView
         android:id="@+id/label_date"
         android:layout_width="match_parent"
@@ -24,13 +24,43 @@
         android:layout_marginTop="10dp"
         android:padding="5dp"
         android:text="Atur Tanggal"
-        android:textColor="@color/blue_500"
+        android:textColor="@color/red_500"
+        android:textStyle="bold"
         app:drawableStartCompat="@drawable/ic_date"
         android:drawablePadding="5dp"
-        android:drawableTint="@color/blue_500"
+        android:drawableTint="@color/red_500"
         android:gravity="start|center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_task"
+        tools:ignore="HardcodedText"
+        />
+    <TextView
+        android:id="@+id/label_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Atur Jam"
+        android:textColor="@color/red_500"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_time"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/red_500"
+        android:gravity="start|center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_date"
+        tools:ignore="HardcodedText"
+        />
+    <TextView
+        android:id="@+id/text_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        tools:text="23:59"
+        android:gravity="start|center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/label_date"
+        app:layout_constraintBottom_toBottomOf="@+id/label_date"
         tools:ignore="HardcodedText"
         />
     <TextView
@@ -38,22 +68,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        tools:text="2021-02-11"
+        tools:text="01/01/2001"
         android:gravity="start|center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/label_date"
+        app:layout_constraintEnd_toStartOf="@+id/text_time"
         app:layout_constraintBottom_toBottomOf="@+id/label_date"
         tools:ignore="HardcodedText"
         />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:text="Tambahkan"
+        android:textAllCaps="false"
         app:cornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_date"
+        app:layout_constraintTop_toBottomOf="@+id/label_time"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.DetailFragment">
+    tools:context="com.kelompok2.nugazz.fragment.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,50 +17,51 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:src="@drawable/ic_edit"
-            app:tint="@color/blue_500"
+            app:tint="@color/red_500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/label_task"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Tugas"
+            android:text="Tugas"
+            android:textColor="@color/black"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_edit"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText,SmallSp" />
         <TextView
             android:id="@+id/text_task"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            tools:text="Bimbingan skripsi"
+            tools:text="Proyek PSI"
             android:textColor="@color/black"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_edit"
             app:layout_constraintTop_toBottomOf="@+id/label_task"
             tools:ignore="HardcodedText"
-            app:drawableStartCompat="@drawable/ic_task"
-            android:gravity="start|center"
             />
         <TextView
             android:id="@+id/label_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            tools:text="Tanggal"
+            android:text="Tanggal"
+            android:textColor="@color/black"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_task"
             tools:ignore="HardcodedText,SmallSp" />
         <TextView
             android:id="@+id/text_date"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            tools:text="02/04/2021"
+            tools:text="01/01/2021"
             android:textColor="@color/black"
+            android:textStyle="bold"
             app:drawableStartCompat="@drawable/ic_date"
             android:drawablePadding="5dp"
             android:drawableTint="@color/black"
@@ -68,6 +69,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_date"
             tools:ignore="HardcodedText"
+            />
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="8dp"
+            tools:text="23:59"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/text_date"
+            app:layout_constraintTop_toBottomOf="@+id/label_date"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
